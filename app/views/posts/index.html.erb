@@ -1,9 +1,9 @@
 <%- model_class = Post.new.class -%>
-
-<div class="page-header" style="background-color: #5f9ea0; width: 800px;">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<div class="hero-unit" align="center" style="width: 700px; padding-top: 0px;">
+<div class="page-header" style="background-color: #5f9ea0; width: 500px; height: 40px;">
+  <h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
 </div>
-<div class="hero-unit" align="center" style="width: 700px;">
+
 <table class="table table-striped">
   <thead>
     <tr>

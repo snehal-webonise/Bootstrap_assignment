@@ -16,6 +16,17 @@
   <div id="showcomments"> <%= render :partial => "comment_form" %> </div>   <br /> <br /><br />
 
   <%= form_for @comment,:url=> create_comment_post_path ,:method => "post",:remote => true  do |f| %>
+      <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h4><span class="label label-warning"> prohibited this post from being saved:</span></h4>
+
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
       <div class="field" align="left">
         <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 80px;"><%= f.label :comment %></div></div><br />
         <%= f.text_area :comment,:id=>"new_comment", :rows => 5 %>  <br/>
