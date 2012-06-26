@@ -1,6 +1,7 @@
 <h3>Please Enter the details</h3>
 
 <%= form_for(@post,:url=> myupdate_post_path) do |f| %>
+    <div class="hero-unit" align="center" style="width: 500px;">
     <% if @post.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -14,15 +15,16 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %><br />
+      <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 30px;"> <%= f.label :title %></div></div><br />
       <%= f.text_field :title %>
     </div>
     <div class="field">
-      <%= f.label :description %><br />
+      <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 80px;"><%= f.label :description %></div></div><br />
       <%= f.text_area :description %>  <br/>
     </div> <br />
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :class => 'btn btn-primary'%>
     </div>
+        </div>
 <% end %>

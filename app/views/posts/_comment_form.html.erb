@@ -1,8 +1,9 @@
-<p>
-  <b>Comments:</b>
+<table style="width: 190px;">
+  <tr><td>
+    <div align="left" style="width: 110px;"><div class="label label-info" align="left" style="width: 80px;">Comments: </div></div> </td></tr>
   <% @comments.each do |comment| %>
-      <%#=	 comment.inspect %>
-    <p><%= comment.comment %></p>
-<%end %>
-</p>
 
+   <tr><td></td><td><%= comment.comment %></td></tr>
+<%end %>
+</table>
+ <br />
