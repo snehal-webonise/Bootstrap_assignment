@@ -1,0 +1,30 @@
+
+<%= form_for(@post,:url=> update_post_post_path) do |f| %>
+    <div class="hero-unit" align="center" style="width: 500px; padding-top: 0px">
+      <div style="background-color: #5f9ea0; width: 500px"> <h3 style="color:#000000;" >Edit Data</h3></div><br />
+      <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 30px;"> <%= f.label :title %></div></div><br />
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 80px;"><%= f.label :description %></div></div><br />
+        <%= f.text_area :description, :rows=>6 %>  <br/>
+      </div> <br />
+
+      <div class="actions">
+        <%= f.submit :class => 'btn btn-primary'%>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,32 @@
+<p id="notice" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
+
+<div class="hero-unit" align="center" style="width: 500px; padding-top: 0px">
+  <div style="background-color: #5f9ea0; width: 500px"> <h3 style="color:#000000;" >Details</h3></div><br />
+  <table align="left">
+    <tr><td>
+      <div align="left" style="width: 120px;"><div class="label label-info" align="left" style="width: 30px;">Title:</div></div> </td>
+      <td><%= @post.title %></td></tr><tr style="height: 15px;"></tr>
+
+
+    <tr><td>
+      <div align="left" style="width: 120px;"><div class="label label-info" align="left" style="width: 80px;"><b>Description:</b></div></div> </td>
+      <td><%= @post.description %></td></tr><tr style="height: 15px;"></tr>
+  </table>  <br /><br /><br /> <br /><br />
+
+  <div id="showcomments"> <%= render :partial => "comment_form" %> </div>   <br /> <br /><br />
+
+  <%= form_for @comment,:url=> create_comment_post_path ,:method => "post",:remote => true  do |f| %>
+      <div class="field" align="left">
+        <div align="left" style="width: 210px;"><div class="label label-info" align="left" style="width: 80px;"><%= f.label :comment %></div></div><br />
+        <%= f.text_area :comment,:id=>"new_comment", :rows => 5 %>  <br/>
+      </div> <br />
+
+      <div class="actions" align="left">
+        <%= f.submit :id=>"add_comment", :class => 'btn btn-primary'%>
+      </div>
+  <% end %>
+  <%=	 link_to "Back" ,posts_path %>
+</div>
+
+
+

@@ -1,17 +1,17 @@
 BootstrapAssignment::Application.routes.draw do
   resources :posts do
     member do
-      get "myshowdata"
-      get "mydelete"
-      get "myedit"
-      put "myupdate"
+      get "showdata_post"
+      get "delete_post"
+      get "edit_post"
+      put "update_post"
       post "create_comment"
     end
 
     collection do
       get "index"
-      get "myform"
-      post "mycreate"
+      get "form_post"
+      post "create_post"
 
 
     end

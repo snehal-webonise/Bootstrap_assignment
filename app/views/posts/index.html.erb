@@ -1,7 +1,9 @@
 <%- model_class = Post.new.class -%>
-<div class="page-header">
+
+<div class="page-header" style="background-color: #5f9ea0; width: 800px;">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+<div class="hero-unit" align="center" style="width: 700px;">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,9 +28,9 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Show", myshowdata_post_path(post)%></li>
-              <li><%= link_to "Edit",myedit_post_path(post)%></li>
-              <li><%= link_to "Delete",mydelete_post_path(post)%></li>
+              <li><%= link_to "Show", showdata_post_post_path(post)%></li>
+              <li><%= link_to "Edit",edit_post_post_path(post)%></li>
+              <li><%= link_to "Delete",delete_post_post_path(post)%></li>
             </ul>
           </div>
 
@@ -37,10 +39,12 @@
     <% end %>
   </tbody>
 </table>
+  <div align="left">
 
 <%= link_to t('.Add Data', :default => t("helpers.links.Add Data")),
-            myform_posts_path,
-            :class => 'btn btn-primary' %>
+            form_post_posts_path,
+            :class => 'btn btn-primary' %></div>
+
+<%= will_paginate  %>
 <br />
-<%= will_paginate @posts %>
-<br />
+  </div>

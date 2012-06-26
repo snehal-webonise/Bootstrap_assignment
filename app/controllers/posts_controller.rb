@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
   def index
-    @posts =  Post.paginate(:page => params[:page], :per_page => 1)
+    @posts =  Post.paginate(:page => params[:page], :per_page => 7)
   end
 
-  def myform
+  def form_post
     @post = Post.new
 
     respond_to do |format|
-      format.html # myform.html.erb
+      format.html # form_post.html.erb
       format.json { render :json => @post }
     end
 
   end
 
-  def mycreate
+  def create_post
     @post = Post.create_new_entry(params[:post])
     respond_to do |format|
       if @post.save
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def mydelete
+  def delete_post
     @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
@@ -32,11 +32,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def myedit
+  def edit_post
     @post = Post.find(params[:id])
   end
 
-  def myupdate
+  def update_post
     @post = Post.find(params[:id])
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def myshowdata
+  def showdata_post
     @post = Post.find(params[:id])
     logger.info "######################myshowdata############{@post.inspect}"
 
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     #logger.info "######################myshowdata############{@comments.inspect}"
     @comment = @post.posts_comments.new
     respond_to do |format|
-      format.html # myshowdata.html.erb
+      format.html # showdata_post.html.erb
     end
   end
 
