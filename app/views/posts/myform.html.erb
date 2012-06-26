@@ -1,0 +1,27 @@
+<h3>Please Enter the details</h3>
+
+<%= form_for(@post,:url=> mycreate_posts_path) do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description %>  <br/>
+    </div> <br />
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

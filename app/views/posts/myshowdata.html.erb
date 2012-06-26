@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @post.description %>
+</p>
+
+<div id="showcomments"> <%= render :partial => "comment_form" %> </div>
+
+<%= form_for @comment,:url=> create_comment_post_path ,:method => "post",:remote => true  do |f| %>
+    <div class="field">
+      <%= f.label :comment %><br />
+      <%= f.text_area :comment,:id=>"new_comment" %>  <br/>
+    </div> <br />
+
+    <div class="actions">
+      <%= f.submit :id=>"add_comment" %>
+    </div>
+<% end %>
+
+<%=	 link_to "Back" ,mydatalist_posts_path %>
+
+
