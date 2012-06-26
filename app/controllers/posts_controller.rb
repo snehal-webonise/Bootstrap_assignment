@@ -49,7 +49,11 @@ class PostsController < ApplicationController
 
   def myshowdata
     @post = Post.find(params[:id])
+    logger.info "######################myshowdata############{@post.inspect}"
+
+
     @comments = @post.posts_comments
+    #logger.info "######################myshowdata############{@comments.inspect}"
     @comment = @post.posts_comments.new
     respond_to do |format|
       format.html # myshowdata.html.erb
